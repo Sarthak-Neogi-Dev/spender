@@ -21,7 +21,7 @@ app.get("/create",async (req, res)=>{
         isOpen : true
     });
     await S1.save();
-    res.send("Session Created");
+    res.send(`Session Created : ${S1._id}`);
 })
 
 app.listen(port, ()=>{
