@@ -17,10 +17,10 @@ export default function Join(){
 
     return <>
         <form onSubmit={handleSubmit}>
-            <div>
-                <h1 className="title">Enter Session ID:</h1>
-                <input type="text" name="session_id" value={id} onChange={handleChange}/>
-                <input type="submit"/>
+            <div className="join_form">
+                <h1 className="join_title">Enter Session ID:</h1>
+                <input className="join_text" type="text" name="session_id" value={id} onChange={handleChange}/>
+                <input className="join_button" type="submit" value="Join Session"/>
             </div>
         </form>
     </>

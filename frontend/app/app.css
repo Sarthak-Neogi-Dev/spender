@@ -19,6 +19,25 @@ body {
 }
 
 .button{
-  @apply bg-amber-900 text-yellow-300 text-2xl m-5 p-5 rounded-2xl
+  @apply bg-amber-900 text-yellow-300 text-2xl m-5 p-5 rounded-2xl font-extrabold
   dark:bg-yellow-300 dark:text-amber-900;
+}
+
+.join_form{
+  @apply flex p-10 gap-5 justify-center items-center h-screen;
+}
+
+.join_title{
+  @apply text-amber-900 text-2xl
+  dark:text-yellow-300;
+}
+
+.join_text{
+  @apply border-4 outline-0 bg-amber-900 border-amber-900 text-2xl hover:border-amber-500 hover:bg-amber-500 text-yellow-300
+ dark:border-yellow-300 dark:bg-yellow-300 dark:hover:border-yellow-500 dark:hover:bg-yellow-500 dark:text-amber-900; 
+}
+
+.join_button{
+  @apply bg-amber-900 text-yellow-300 px-4 py-2 rounded-3xl text-xl font-bold outline-amber-900 hover:outline-2 hover:outline-offset-2
+  dark:bg-yellow-300 dark:text-amber-900 dark:outline-yellow-300;
 }
