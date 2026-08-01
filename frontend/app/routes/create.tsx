@@ -46,23 +46,23 @@ export default function Create() {
 
     return <>
         <form onSubmit={handleSubmit}>
-            <div>
-                <h1>Create New Session</h1>
-                <label id="no_users">No. of Users: </label>
-                <input type="number" name="no_users" id="no_users" value={no_user} onChange={handleChangeA} />
+            <div className="create_form">
+                <h1 className="create_title">Create New Session</h1>
+                <label className="create_label">No. of Users: </label>
+                <input className="create_no_users" type="number" name="no_users" id="no_users" value={no_user} onChange={handleChangeA} />
                 {(() => {
                     const divs: React.JSX.Element[] = [];
                     for (let i = 0; i < no_user; i++) {
                         divs.push(
-                            <div key={i}>
-                                <label>User {i + 1}: </label>
-                                <input type="text" name="name" id="name" onChange={(e) => handleChangeB(e, i)} />
+                            <div className="create_user_wrapper" key={i}>
+                                <label className="create_user_label">User {i + 1}: </label>
+                                <input className="create_user_name" type="text" name="name" id="name" onChange={(e) => handleChangeB(e, i)} />
                             </div>
                         )
                     }
                     return divs;
                 })()}
-                <button type="submit">Create Session</button>
+                <button className="button" type="submit">Create Session</button>
             </div>
         </form>
     </>
