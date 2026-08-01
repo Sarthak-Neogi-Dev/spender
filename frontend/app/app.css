@@ -18,26 +18,46 @@ body {
   @apply flex p-10 gap-5 justify-center items-center h-screen;
 }
 
-.button{
-  @apply bg-amber-900 text-yellow-300 text-2xl m-5 p-5 rounded-2xl font-extrabold
-  dark:bg-yellow-300 dark:text-amber-900;
-}
-
-.join_form{
+.join_form {
   @apply flex p-10 gap-5 justify-center items-center h-screen;
 }
 
-.join_title{
-  @apply text-amber-900 text-2xl
-  dark:text-yellow-300;
+.join_title {
+  @apply text-amber-900 text-2xl dark:text-yellow-300;
 }
 
-.join_text{
-  @apply border-4 outline-0 bg-amber-900 border-amber-900 text-2xl hover:border-amber-500 hover:bg-amber-500 text-yellow-300
- dark:border-yellow-300 dark:bg-yellow-300 dark:hover:border-yellow-500 dark:hover:bg-yellow-500 dark:text-amber-900; 
+.join_text {
+  @apply border-4 outline-0 bg-amber-900 border-amber-900 text-2xl hover:border-amber-500 hover:bg-amber-500 text-yellow-300 dark:border-yellow-300 dark:bg-yellow-300 dark:hover:border-yellow-500 dark:hover:bg-yellow-500 dark:text-amber-900;
 }
 
-.join_button{
-  @apply bg-amber-900 text-yellow-300 px-4 py-2 rounded-3xl text-xl font-bold outline-amber-900 hover:outline-2 hover:outline-offset-2
-  dark:bg-yellow-300 dark:text-amber-900 dark:outline-yellow-300;
+.button {
+  @apply bg-amber-900 text-yellow-300 px-4 py-2 rounded-3xl text-xl font-bold outline-amber-900 hover:outline-2 hover:outline-offset-2 dark:bg-yellow-300 dark:text-amber-900 dark:outline-yellow-300;
+}
+
+.create_form {
+  @apply flex flex-col p-10 m-10 gap-5 items-center;
+}
+
+.create_title {
+  @apply text-amber-900 text-2xl font-bold dark:text-yellow-300;
+}
+
+.create_label {
+  @apply text-amber-900 text-xl font-bold dark:text-yellow-300;
+}
+
+.create_no_users {
+  @apply text-center border-4 outline-0 bg-amber-900 border-amber-900 text-2xl hover:border-amber-500 hover:bg-amber-500 text-yellow-300 dark:border-yellow-300 dark:bg-yellow-300 dark:hover:border-yellow-500 dark:hover:bg-yellow-500 dark:text-amber-900 w-40;
+}
+
+.create_user_name {
+  @apply border-4 outline-0 bg-amber-900 border-amber-900 text-2xl hover:border-amber-500 hover:bg-amber-500 text-yellow-300 dark:border-yellow-300 dark:bg-yellow-300 dark:hover:border-yellow-500 dark:hover:bg-yellow-500 dark:text-amber-900;
+}
+
+.create_user_wrapper {
+  @apply flex gap-5 justify-center items-center;
+}
+
+.create_user_wrapper>label {
+  @apply text-yellow-300 bg-amber-900 p-2 rounded-xl text-xl font-bold dark:text-amber-900 dark:bg-yellow-300;
 }
