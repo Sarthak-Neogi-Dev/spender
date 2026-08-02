@@ -82,8 +82,11 @@ export default function Main() {
         }
         else {
             setIsError(true);
+            setTimeout(() => {
+                setTrigger(trigger + 1);
+            }, 500)
         }
-    }, [trigger, id])
+    }, [trigger])
 
     return <>
         {isError ? <h1>Something Went Wrong</h1> : isLoading ? <h1>Loading...</h1> : <>
