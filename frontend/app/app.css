@@ -117,3 +117,15 @@ body {
 .close_session_box {
   @apply col-span-3 flex justify-center items-center;
 }
+
+.closing_screen {
+  @apply flex flex-col items-center justify-center h-screen;
+}
+
+.closing_screen>h1 {
+  @apply font-bold text-3xl my-2;
+}
+
+.closing_screen>p {
+  @apply font-bold text-xl my-2;
+}
