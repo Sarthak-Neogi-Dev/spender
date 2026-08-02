@@ -12,7 +12,8 @@ export default function Main() {
     async function fetchSession(id: string) {
         setIsLoading(true);
         const res = await axios.get(`http://localhost:8080/session/${id}`);
-        return res.data;
+        const data = JSON.parse(res.data);
+        return data;
     }
 
     useEffect(() => {
@@ -31,6 +32,10 @@ export default function Main() {
     }, [])
 
     return <>
-        {isError ? <h1>Something Went Wrong</h1> : isLoading ? <h1>Loading...</h1> : <>{data}</>}
+        {isError ? <h1>Something Went Wrong</h1> : isLoading ? <h1>Loading...</h1> : <>
+            {data.members.map((member: string, idx: number) => (
+                <div>{member} : {data.totals[idx]}</div>
+            ))}
+        </>}
     </>
 }
