@@ -67,7 +67,7 @@ router.get('/close/:id', async (req, res) => {
 //To Create A New Expense
 router.post('/expense/', async (req, res) => {
     const expense: IExpense = await req.body.expense;
-    if (!expense || !expense.amount || !expense.payer_id || !expense.title) {
+    if (!expense || !expense.amount || !expense.title) {
         return res.status(400).send("Invalid Expense");
     }
     const id = await req.body.id;
@@ -79,7 +79,7 @@ router.post('/expense/', async (req, res) => {
         return res.status(404).send("Session Not Found");
     }
     session.totals[expense.payer_id.valueOf()] = session.totals[expense.payer_id.valueOf()].valueOf() + expense.amount.valueOf();
-    var share = expense.amount.valueOf() / session.members.length;
+    var share = Math.floor(expense.amount.valueOf() / session.members.length);
     for (var i = 0; i < session.members.length; i++) {
         session.totals[i] = session.totals[i].valueOf() - share;
     }
@@ -102,7 +102,7 @@ router.post('/delete/', async (req, res) => {
     }
 
     session.totals[expense.payer_id.valueOf()] = session.totals[expense.payer_id.valueOf()].valueOf() - expense.amount.valueOf();
-    var share = expense.amount.valueOf() / session.members.length;
+    var share = Math.floor(expense.amount.valueOf() / session.members.length);
     for (var i = 0; i < session.members.length; i++) {
         session.totals[i] = session.totals[i].valueOf() + share;
     }
