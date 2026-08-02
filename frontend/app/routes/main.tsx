@@ -83,7 +83,7 @@ export default function Main() {
         else {
             setIsError(true);
         }
-    }, [trigger])
+    }, [trigger, id])
 
     return <>
         {isError ? <h1>Something Went Wrong</h1> : isLoading ? <h1>Loading...</h1> : <>
