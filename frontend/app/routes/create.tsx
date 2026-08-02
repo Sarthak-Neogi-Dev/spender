@@ -38,10 +38,10 @@ export default function Create() {
             isOpen: true
         };
         axios.post("http://localhost:8080/session", { session }).then((res) => {
-            alert("Session Created : ID : " + res.data)
             setId(res.data);
+            alert("Session Created : ID : " + res.data)
+            navigate("/main");
         });
-        navigate("/main");
     }
 
     return <>
