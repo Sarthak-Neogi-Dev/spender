@@ -2,6 +2,7 @@ import axios from "axios";
 import useId from "../stores/id.store";
 import type { IuseId } from "../stores/id.store";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 
 export default function Main() {
     const [data, setData] = useState<any>(null);
@@ -9,6 +10,7 @@ export default function Main() {
     const [isError, setIsError] = useState<boolean>(false);
     const [trigger, setTrigger] = useState(0);
     const { id } = useId() as IuseId;
+    const navigation = useNavigate();
 
     const [expenseTitle, setExpenseTitle] = useState<string>("");
     const [expenseAmount, setExpenseAmount] = useState<number>(0);
@@ -60,10 +62,18 @@ export default function Main() {
         setExpensePayer(0);
     }
 
+    async function handleClose() {
+        await axios.get(`http://localhost:8080/session/close/${id}`);
+        navigation("/close");
+    }
+
     useEffect(() => {
         if (id) {
             fetchSession(id).then(data => {
                 setData(data);
+                if (!data.isOpen) {
+                    navigation("/close");
+                }
             }).catch(err => {
                 setIsError(true);
             }).finally(() => {
@@ -116,6 +126,10 @@ export default function Main() {
                     </div>
                     <button type="submit">Add</button>
                 </form>
+            </div>
+
+            <div>
+                <button onClick={handleClose}>Close Session</button>
             </div>
 
         </>}
