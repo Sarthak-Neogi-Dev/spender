@@ -13,7 +13,7 @@ export default function Main() {
     const navigation = useNavigate();
 
     const [expenseTitle, setExpenseTitle] = useState<string>("");
-    const [expenseAmount, setExpenseAmount] = useState<number>(0);
+    const [expenseAmount, setExpenseAmount] = useState<number | string>("");
     const [expensePayer, setExpensePayer] = useState<number>(0);
 
     async function fetchSession(id: string) {
@@ -37,7 +37,8 @@ export default function Main() {
     }
 
     function handleChangeAmount(e: React.ChangeEvent<HTMLInputElement>) {
-        setExpenseAmount(Number(e.target.value));
+        const val = e.target.value;
+        setExpenseAmount(val === "" ? "" : Number(val));
     }
 
     function handleChangePayer(e: React.ChangeEvent<HTMLSelectElement>) {
@@ -48,7 +49,7 @@ export default function Main() {
         e.preventDefault();
         const expense = {
             "title": expenseTitle,
-            "amount": expenseAmount,
+            "amount": Number(expenseAmount) || 0,
             "payer_id": expensePayer
         }
         const data = {
@@ -58,7 +59,7 @@ export default function Main() {
         await axios.post(`http://localhost:8080/session/expense/`, data);
         setTrigger(trigger + 1);
         setExpenseTitle("");
-        setExpenseAmount(0);
+        setExpenseAmount("");
         setExpensePayer(0);
     }
 
@@ -90,27 +91,26 @@ export default function Main() {
 
     return <>
         {isError ? <h1>Something Went Wrong</h1> : isLoading ? <h1>Loading...</h1> : <>
+            <div className="main_screen">
+                <div className="members_box">
+                    <h1>Members :</h1>
+                    {data.members.map((member: string, idx: number) => (
+                        <div key={idx}>{member} : {data.totals[idx]}</div>
+                    ))}
+                </div>
 
-            <div>
-                <h1>Members :</h1>
-                {data.members.map((member: string, idx: number) => (
-                    <div key={idx}>{member} : {data.totals[idx]}</div>
-                ))}
-            </div>
+                <div className="expenses_box">
+                    <h1>Expenses :</h1>
+                    {data.expenses.map((expense: { payer_id: number, title: string, amount: number }, idx: number) => (
+                        <div className="expense" key={idx}>
+                            <p>{data.members[expense.payer_id]} : {expense.title} : {expense.amount}</p>
+                            <button className="delete_button" onClick={() => { deleteExpense(idx) }}>Delete</button>
+                        </div>
+                    ))}
+                </div>
+                <form onSubmit={handleSubmit} className="add_expense_box" >
+                    <h1>Add Expense :</h1>
 
-            <div>
-                <h1>Expenses :</h1>
-                {data.expenses.map((expense: { payer_id: number, title: string, amount: number }, idx: number) => (
-                    <div key={idx}>
-                        <p>{data.members[expense.payer_id]} : {expense.title} : {expense.amount}</p>
-                        <button onClick={() => { deleteExpense(idx) }}>Delete</button>
-                    </div>
-                ))}
-            </div>
-
-            <div>
-                <h1>Add Expense :</h1>
-                <form onSubmit={handleSubmit} >
                     <div>
                         <label>Title : </label>
                         <input type="text" value={expenseTitle} onChange={handleChangeTitle} />
@@ -127,14 +127,14 @@ export default function Main() {
                             ))}
                         </select>
                     </div>
-                    <button type="submit">Add</button>
+                    <button className="add_button" type="submit">Add</button>
                 </form>
-            </div>
 
-            <div>
-                <button onClick={handleClose}>Close Session</button>
-            </div>
 
+                <div className="close_session_box">
+                    <button className="button" onClick={handleClose}>Close Session</button>
+                </div>
+            </div>
         </>}
     </>
 }

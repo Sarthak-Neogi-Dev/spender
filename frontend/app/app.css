@@ -61,3 +61,59 @@ body {
 .create_user_wrapper>label {
   @apply text-yellow-300 bg-amber-900 p-2 rounded-xl text-xl font-bold dark:text-amber-900 dark:bg-yellow-300;
 }
+
+.main_screen {
+  @apply grid grid-cols-3 grid-rows-3 gap-5 mx-auto my-auto h-screen w-full m-5 p-5;
+}
+
+.members_box {
+  @apply row-span-2 m-2 p-2 flex flex-col gap-3 border-4 outline-0 bg-amber-900 border-amber-900 text-2xl hover:border-amber-500 hover:bg-amber-500 text-yellow-300 dark:border-yellow-300 dark:bg-yellow-300 dark:hover:border-yellow-500 dark:hover:bg-yellow-500 dark:text-amber-900;
+}
+
+.members_box>h1 {
+  @apply font-bold text-3xl my-2;
+}
+
+.expenses_box {
+  @apply row-span-2 m-2 p-2 flex flex-col scrollbar-none overflow-y-auto gap-3 border-4 outline-0 bg-amber-900 border-amber-900 text-2xl hover:border-amber-500 hover:bg-amber-500 text-yellow-300 dark:border-yellow-300 dark:bg-yellow-300 dark:hover:border-yellow-500 dark:hover:bg-yellow-500 dark:text-amber-900;
+}
+
+.expenses_box>h1 {
+  @apply font-bold text-3xl my-2;
+}
+
+.expense {
+  @apply flex gap-4 mx-4 justify-between items-center;
+}
+
+.add_expense_box {
+  @apply row-span-2 flex flex-col items-center gap-4 m-2 p-5 border-4 outline-0 bg-amber-900 border-amber-900 text-2xl hover:border-amber-500 hover:bg-amber-500 text-yellow-300 dark:border-yellow-300 dark:bg-yellow-300 dark:hover:border-yellow-500 dark:hover:bg-yellow-500 dark:text-amber-900;
+}
+
+.add_expense_box>h1 {
+  @apply font-bold text-3xl my-2;
+}
+
+.add_expense_box>div {
+  @apply text-yellow-300 bg-amber-900 p-2 rounded-xl text-xl font-bold dark:text-amber-900 dark:bg-yellow-300;
+}
+
+.add_expense_box>div>input {
+  @apply border-4 outline-0 bg-amber-900 border-amber-900 text-2xl hover:border-amber-500 hover:bg-amber-500 text-yellow-300 dark:border-yellow-300 dark:bg-yellow-300 dark:hover:border-yellow-500 dark:hover:bg-yellow-500 dark:text-amber-900;
+}
+
+.add_expense_box>div>select {
+  @apply border-4 outline-0 bg-amber-900 border-amber-900 text-2xl hover:border-amber-500 hover:bg-amber-500 text-yellow-300 dark:border-yellow-300 dark:bg-yellow-300 dark:hover:border-yellow-500 dark:hover:bg-yellow-500 dark:text-amber-900;
+}
+
+.add_button {
+  @apply bg-yellow-300 text-amber-900 px-4 py-2 rounded-3xl text-xl font-bold outline-yellow-300 hover:outline-2 hover:outline-offset-2 dark:bg-amber-900 dark:text-yellow-300 dark:outline-amber-900;
+}
+
+.delete_button {
+  @apply bg-fuchsia-300 text-amber-900 px-4 py-2 rounded-lg text-lg font-bold outline-fuchsia-300 hover:outline-2 hover:outline-offset-2 dark:bg-fuchsia-700 dark:text-yellow-300 dark:outline-fuchsia-700;
+}
+
+.close_session_box {
+  @apply col-span-3 flex justify-center items-center;
+}
