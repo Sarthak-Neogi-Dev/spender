@@ -3,6 +3,7 @@ import useId from "../stores/id.store";
 import type { IuseId } from "../stores/id.store";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import useClose, { type Iclose } from "~/stores/close.store";
 
 export default function Main() {
     const [data, setData] = useState<any>(null);
@@ -11,6 +12,7 @@ export default function Main() {
     const [trigger, setTrigger] = useState(0);
     const { id } = useId() as IuseId;
     const navigation = useNavigate();
+    const { setClose } = useClose() as Iclose;
 
     const [expenseTitle, setExpenseTitle] = useState<string>("");
     const [expenseAmount, setExpenseAmount] = useState<number | string>("");
@@ -64,7 +66,8 @@ export default function Main() {
     }
 
     async function handleClose() {
-        await axios.get(`http://localhost:8080/session/close/${id}`);
+        const close = await axios.get(`http://localhost:8080/session/close/${id}`);
+        setClose(JSON.parse(close.data));
         navigation("/close");
     }
 
@@ -73,7 +76,7 @@ export default function Main() {
             fetchSession(id).then(data => {
                 setData(data);
                 if (!data.isOpen) {
-                    navigation("/close");
+                    handleClose();
                 }
             }).catch(err => {
                 setIsError(true);
