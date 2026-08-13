@@ -1,6 +1,6 @@
 import express from 'express';
-import Session from '../models/sessions.model.js';
-import type { ISession, IExpense, ITransfer } from '../models/sessions.model.js';
+import Session from '../models/sessions.model.ts';
+import type { ISession, IExpense, ITransfer } from '../models/sessions.model.ts';
 
 const router = express.Router();
 

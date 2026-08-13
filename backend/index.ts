@@ -1,6 +1,6 @@
 import express from "express";
-import connectDB from './lib/mongoose.js';
-import router from './routes/session.js';
+import connectDB from './lib/mongoose.ts';
+import router from './routes/session.ts';
 import cors from 'cors';
 
 const app = express();
@@ -14,4 +14,6 @@ app.use(express.json());
 
 app.use('/session', router);
 
-export default app;
+app.listen(port, () => {
+    console.log(`⚡[server]: Server is running at http://localhost:${port}`);
+});
