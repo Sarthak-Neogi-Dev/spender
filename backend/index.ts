@@ -16,6 +16,10 @@ app.use(express.json());
 
 app.use('/session', router);
 
+app.get("/", (req, res) => {
+    res.send("Welcome to Spender Backend!");
+})
+
 app.listen(port, () => {
-    console.log(`⚡[server]: Server is running at http://localhost:${port}`);
+    console.log(`⚡[server]: Server is running at ${port}`);
 });
