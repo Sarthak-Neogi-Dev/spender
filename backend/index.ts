@@ -20,6 +20,6 @@ app.get("/", (req, res) => {
     res.send("Welcome to Spender Backend!");
 })
 
-app.listen(port, () => {
+app.listen(Number(port), '0.0.0.0', () => {
     console.log(`⚡[server]: Server is running at ${port}`);
 });
