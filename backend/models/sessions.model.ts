@@ -1,62 +1,62 @@
 import mongoose from "mongoose";
 
 export interface ITransfer {
-    sender_id : Number,
-    reciever_id : Number,
-    title : String,
-    amount : Number
+    sender_id: Number,
+    reciever_id: Number,
+    title: String,
+    amount: Number
 }
 
 const transferSchema = new mongoose.Schema<ITransfer>({
-    sender_id : Number,
-    reciever_id : Number,
-    title : String,
-    amount : Number
+    sender_id: Number,
+    reciever_id: Number,
+    title: String,
+    amount: Number
 });
 
 export interface IExpense {
-    payer_id : Number,
-    title : String,
-    amount : Number
-} 
+    payer_id: Number,
+    title: String,
+    amount: Number
+}
 
 const expenseSchema = new mongoose.Schema<IExpense>({
-    payer_id : Number,
-    title : String,
-    amount : Number
+    payer_id: Number,
+    title: String,
+    amount: Number
 })
 
 export interface ISession {
-    members : String[],
-    totals : Number[],
-    expenses : IExpense[],
-    transfers : ITransfer[],
-    isOpen : boolean
+    members: String[],
+    totals: Number[],
+    expenses: IExpense[],
+    transfers: ITransfer[],
+    isOpen: boolean
 }
 
 const sessionSchema = new mongoose.Schema<ISession>({
-    members : {
-        type : [String],
-        required : true
+    members: {
+        type: [String],
+        required: true
     },
-    totals : {
-        type : [Number],
-        required : true
+    totals: {
+        type: [Number],
+        required: true
     },
-    expenses : {
-        type : [expenseSchema],
-        required : true,
-        default : []
+    expenses: {
+        type: [expenseSchema],
+        required: true,
+        default: []
     },
-    transfers : {
-        type : [transferSchema],
-        required : true,
-        default : []
+    transfers: {
+        type: [transferSchema],
+        required: true,
+        default: []
     },
-    isOpen : {
-        type : Boolean,
-        required : true,
-        default : true
+    isOpen: {
+        type: Boolean,
+        required: true,
+        default: true
     }
 });
 

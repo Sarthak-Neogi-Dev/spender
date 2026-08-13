@@ -1,7 +1,6 @@
 import express from 'express';
-import mongoose from 'mongoose';
-import Session from '../models/sessions.model.ts';
-import type { ISession, IExpense, ITransfer } from '../models/sessions.model.ts';
+import Session from '../models/sessions.model';
+import type { ISession, IExpense, ITransfer } from '../models/sessions.model';
 
 const router = express.Router();
 
