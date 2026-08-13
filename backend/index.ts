@@ -1,6 +1,6 @@
 import express from "express";
-import connectDB from './lib/mongoose';
-import router from './routes/session';
+import connectDB from './lib/mongoose.js';
+import router from './routes/session.js';
 import cors from 'cors';
 
 const app = express();
