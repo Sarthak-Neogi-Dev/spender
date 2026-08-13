@@ -115,7 +115,7 @@ body {
 }
 
 .close_session_box {
-  @apply col-span-3 flex justify-center items-center;
+  @apply col-span-3 flex flex-col items-center justify-center h-auto;
 }
 
 .closing_screen {
@@ -127,5 +127,9 @@ body {
 }
 
 .closing_screen>p {
+  @apply font-bold text-xl my-2;
+}
+
+.session_id {
   @apply font-bold text-xl my-2;
 }

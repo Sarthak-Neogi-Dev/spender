@@ -135,6 +135,8 @@ export default function Main() {
 
 
                 <div className="close_session_box">
+                    <p>NOTE : COPY AND SAVE THIS ID TO RETRIEVE YOUR SESSION LATER</p>
+                    <p className="session_id">{id}</p>
                     <button className="button" onClick={handleClose}>Close Session</button>
                 </div>
             </div>
