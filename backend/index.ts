@@ -14,10 +14,6 @@ app.use(express.json());
 
 app.use('/session', router);
 
-app.get("/", (req, res) => {
-    res.send("Hello World");
-});
-
 app.listen(port, () => {
     console.log(`Listenning at Port : ${port}`);
 });
