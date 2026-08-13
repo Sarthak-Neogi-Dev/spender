@@ -5,7 +5,9 @@
   "type": "module",
   "main": "index.ts",
   "scripts": {
-    "dev": "node --watch --experimental-strip-types ./index.ts"
+    "dev": "node --watch --experimental-strip-types ./index.ts",
+    "build": "tsc",
+    "start": "tsc && node dist/index.js"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
