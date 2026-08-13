@@ -17,3 +17,5 @@ app.use('/session', router);
 app.listen(port, () => {
     console.log(`Listenning at Port : ${port}`);
 });
+
+export default app;
