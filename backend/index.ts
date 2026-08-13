@@ -8,8 +8,6 @@ import "dotenv/config";
 const app = express();
 const port = process.env.PORT || 10000;
 
-connectDB();
-
 app.use(cors());
 
 app.use(express.json());
@@ -23,3 +21,5 @@ app.get("/", (req, res) => {
 app.listen(Number(port), '0.0.0.0', () => {
     console.log(`⚡[server]: Server is running at ${port}`);
 });
+
+connectDB();
