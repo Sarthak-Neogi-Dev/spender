@@ -1,4 +1,4 @@
-import mongoose, { mongo } from 'mongoose';
+import mongoose from 'mongoose';
 import "dotenv/config";
 
 export default async function connectDB() {
@@ -12,7 +12,8 @@ export default async function connectDB() {
             console.log("MongoDB URI not found!");
         }
     }
-    catch {
-        console.log("Error Occured");
+    catch (err) {
+        console.error("MongoDB connection error:", err);
+        throw err;
     }
 }
