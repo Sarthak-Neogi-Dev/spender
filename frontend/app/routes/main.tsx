@@ -20,7 +20,7 @@ export default function Main() {
 
     async function fetchSession(id: string) {
         setIsLoading(true);
-        const res = await axios.get(`${process.env.API_URL}/session/${id}`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/session/${id}`);
         const data = JSON.parse(res.data);
         return data;
     }
@@ -30,7 +30,7 @@ export default function Main() {
             "expense_id": expense_id,
             "id": id
         }
-        await axios.post(`${process.env.API_URL}/session/delete/`, data);
+        await axios.post(`${import.meta.env.VITE_API_URL}/session/delete/`, data);
         setTrigger(trigger + 1);
     }
 
@@ -58,7 +58,7 @@ export default function Main() {
             "expense": expense,
             "id": id
         }
-        await axios.post(`${process.env.API_URL}/session/expense/`, data);
+        await axios.post(`${import.meta.env.VITE_API_URL}/session/expense/`, data);
         setTrigger(trigger + 1);
         setExpenseTitle("");
         setExpenseAmount("");
@@ -66,7 +66,7 @@ export default function Main() {
     }
 
     async function handleClose() {
-        const close = await axios.get(`${process.env.API_URL}/session/close/${id}`);
+        const close = await axios.get(`${import.meta.env.VITE_API_URL}/session/close/${id}`);
         setClose(JSON.parse(close.data));
         navigation("/close");
     }

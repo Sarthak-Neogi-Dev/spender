@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import useId from "~/stores/id.store";
 import type { IuseId } from "~/stores/id.store";
 
+
 export default function Create() {
     const [no_user, set_no_user] = useState<number>(2);
     const [users, set_users] = useState<string[]>([]);
@@ -37,7 +38,7 @@ export default function Create() {
             transfers: [],
             isOpen: true
         };
-        axios.post(`${process.env.API_URL}/session`, { session }).then((res) => {
+        axios.post(`${import.meta.env.VITE_API_URL}/session`, { session }).then((res) => {
             setId(res.data);
             alert("Session Created : ID : " + res.data)
             navigate("/main");
