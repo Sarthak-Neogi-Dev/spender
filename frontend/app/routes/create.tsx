@@ -37,7 +37,7 @@ export default function Create() {
             transfers: [],
             isOpen: true
         };
-        axios.post("http://localhost:8080/session", { session }).then((res) => {
+        axios.post(`${process.env.API_URL}/session`, { session }).then((res) => {
             setId(res.data);
             alert("Session Created : ID : " + res.data)
             navigate("/main");
